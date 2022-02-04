@@ -3,27 +3,18 @@
 ![header image](https://raw.githubusercontent.com/codedamn-projects/student-timetable-planner/master/assets/main%20image.png)
 ## Hello developer!
 
-This is one of the many projects available on [codedamn](https://codedamn.com/projects) to reinforce your learning by building. If you want to become a full stack developer and learn by practicing, feel free to attempt this challenge. Feel free to check out the codedamn [Full Stack Web Development Learning Path](https://codedamn.com/learning-paths/fullstack) to learn more about how to become an awesome full stack developer.
+Welcome to Chat Application Project on Codedamn. This is one of the many projects available on [codedamn](https://codedamn.com/projects) to reinforce your learning by building. If you want to become a full stack developer and learn by practicing, feel free to attempt this challenge. Feel free to check out the codedamn [Full Stack Web Development Learning Path](https://codedamn.com/learning-paths/fullstack) to learn more about how to become an awesome full stack developer.
 
 ## Project Overview
 
-You have to implement an application to allow students to choose & register for multiple courses, view their timetable.
-
-The application should take care of the following aspects: 
-
--  Classes can be of multiple subjects - DBMS, Operating System, DSA etc. 
--  Each class has a fixed time slot. (For simplicity consider every class happens once a week at the same time. Ex DBMS: Every Monday 5pm-6pm) 
--  Students can add a class to their timetable if the class’s time doesn’t clash with already booked classes’ time. 
--  Students can delete a class from their timetable.
+You have to imple
 
 
 ### Landing Page
 
-The is no landing page structure, you are free to make a small landing page based on the topic of the project and the page should contain the links for login and registration 
+The is no landing page structure, you are free to make a small landing page based on the topic of the project and the page should contain the links for login and registration, or if the user is not logged in you can redirect them to login page. 
 
-### Project Flow
 
-![project flow](https://raw.githubusercontent.com/codedamn-projects/student-timetable-planner/master/assets/editing.png)
 ### Register
 
 THe registration functionality should be implemented at  `/register` route.
@@ -36,17 +27,6 @@ The login functionality should be implemented in the `/login` route.
 
 On Successful submission of credentials you have to create and store a JWT token in localStorage for handling the authentication. Every request to the api should share the JWt token to verify the identity of the user, before returning any response. 
 
-### Courses
-
-All the available courses should be shown in `/courses` page and student should be able to add courses to his time table and should have a final prompt to add the courses after selection. 
-
-NOTE : Each course will contain multiple classes each class led by a different professor. 
-### my-classes page
-
-The student should be able to view his registered courses in the `/my-classes` page along with the number of classes per week. 
-### timetable
-
-The time table of the student should be shown in `/timetable` router. You can implement a calendar widget to show the courses. 
 
 
 You can use the [react big calendar](https://github.com/jquense/react-big-calendar) library for the calendar component. You are free to any other library or implement it on your own. 
@@ -80,33 +60,21 @@ This Endpoint should be used to show in the `my-classes` and show it on `/timeta
 This should remove the student from the course and remove the class from his time table. 
 
 
-### MongoDB Student document
+### MongoDB User document
 ```
-{ "rollNo": "19BCEXXXXX",
-  "name": "Student_Name",
-  "classes":["class1_id", "class2_id"],
-  "password: string (store it as hash using bcrypt)
-}
-```
-### MongoDB Class document
-```
-{  "id": "class_id",
-   "courseCode": "CSE1002",
-   "faculty": "XXXX",
-   "time":  date object
+{ 
+    "username" : string,
+    "email" : string,
+    "password" : string
 }
 ```
 
-### MongoDB Post Document
-```
-{ 
-    "id": "CSE1002",
-    "name: "OS", 
-}
-```
 
 ### Ports 
 The Codedamn Playgrounds exposes only `1337` and `1338` ports on the internet. So you'll be using `localhost` for connecting to the mongodb instance as they are hosted on the same docker container. You can specify it as `localhost:27017` or simple write `localhost`. 
+
+You have to use the `1338` port for the web socket connection. 
+
 
 ## Recommended Technologies 
 
