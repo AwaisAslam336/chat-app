@@ -1,19 +1,18 @@
 # Codedamn Projects - Chat Application
 
-![header image](https://raw.githubusercontent.com/codedamn-projects/student-timetable-planner/master/assets/main%20image.png)
+![header image](https://raw.githubusercontent.com/codedamn-projects/chat-app/master/designs/landing%20page.png)
 ## Hello developer!
 
 Welcome to Chat Application Project on Codedamn. This is one of the many projects available on [codedamn](https://codedamn.com/projects) to reinforce your learning by building. If you want to become a full stack developer and learn by practicing, feel free to attempt this challenge. Feel free to check out the codedamn [Full Stack Web Development Learning Path](https://codedamn.com/learning-paths/fullstack) to learn more about how to become an awesome full stack developer.
 
 ## Project Overview
 
-You have to imple
+You have to implement chat application where users can 
 
 
 ### Landing Page
 
-The is no landing page structure, you are free to make a small landing page based on the topic of the project and the page should contain the links for login and registration, or if the user is not logged in you can redirect them to login page. 
-
+The landing page is similar to that of the register page, so we don't need another landing page for this project
 
 ### Register
 
@@ -21,20 +20,18 @@ THe registration functionality should be implemented at  `/register` route.
 
 This should contain the students details, refer to the student document for the details to be collected. 
 
+![register page](https://raw.githubusercontent.com/codedamn-projects/chat-app/master/designs/landing%20page.png)
+
 ### Log In
 
 The login functionality should be implemented in the `/login` route.
 
-On Successful submission of credentials you have to create and store a JWT token in localStorage for handling the authentication. Every request to the api should share the JWt token to verify the identity of the user, before returning any response. 
-
-
-
-You can use the [react big calendar](https://github.com/jquense/react-big-calendar) library for the calendar component. You are free to any other library or implement it on your own. 
+![login image](https://raw.githubusercontent.com/codedamn-projects/chat-app/master/designs/login%20page.png)
 
 
 ## API Routes 
 
-### `/api/auth/signin`
+### `/api/auth/login`
 
 To verify the user credentials on Sign In, taking the parameters as the roll number and the password 
 
@@ -42,22 +39,13 @@ To verify the user credentials on Sign In, taking the parameters as the roll num
 
 To register a new student and add the document to the database
 
+### `/api/messages` 
 
-### GET `api/classes/{courseCode}`
+ To get the previous messages in the conversation. Make sure to pass in the Conversation ID to retrieve the messages 
 
-This should return the number of classes in the course. This is should be implemented in `/courses` and on clicking on the course you can open a new page `course/[id]` which will fetch the classes for this course. 
+ ### `/api/conversations`
 
-### POST `/api/classes/{studentId}`
-
-This api should add the class to the student document in the database. 
-
-### GET `/api/class/[studentID]`
-
-This Endpoint should be used to show in the `my-classes` and show it on `/timetable` in the calendar view. 
-
-### DELETE `/api/class/[studentID]/[classID]`
-
-This should remove the student from the course and remove the class from his time table. 
+ To list out all the open conversations on the chat application. 
 
 
 ### MongoDB User document
@@ -69,20 +57,37 @@ This should remove the student from the course and remove the class from his tim
 }
 ```
 
+### MongoDB Message document
+```
+{
+    "conversationId" : string,
+    "sender" : string, 
+    "message" : string
+}
+```
+Take a look at the mongoose schema to get the perfect Idea. 
+
+### MongoDb Conversation document
+```
+{
+    "conversationId" : string,
+    "members" : array
+}
+```
 
 ### Ports 
 The Codedamn Playgrounds exposes only `1337` and `1338` ports on the internet. So you'll be using `localhost` for connecting to the mongodb instance as they are hosted on the same docker container. You can specify it as `localhost:27017` or simple write `localhost`. 
 
 You have to use the `1338` port for the web socket connection. 
 
+You are free to use any third party libraries for the web sockets or any other part of the application. 
 
+To understand about web sockets, you can refer to this [blog](https://codedamn.com/news/backend/what-are-web-sockets-how-is-it-different-from-http)
 ## Recommended Technologies 
 
 1. Mongoose for mongodb object modelling and effective type system 
 1. Tailwind CSS for User Interface
-1. `@mui/icons-material`. You can use their [website](https://mui.com/components/material-icons/) to pick up icons for the project.
 
-There is no restriction for using mui, you can free to choose any other icons for your project.
 
 
 ## Instructions
@@ -104,18 +109,11 @@ There is no limit you can go beyond the mentioned criteria and create additional
 
 ## Where to find everything
 
-Your task is to build out the project as per the provided screenshots. You will find both a mobile and a desktop version of the design.
+Your task is to build out the project as per the provided screenshots.
 
 The designs are in image formats can be found in `/designs`.
 
-You will find all the required required images in the `/public` folder
 
-There is also a `style-guide.html` file containing the information you'll need, such as color palette and font names. Make sure to open this in the browser to see the contents.
-
-## Want to do more
-
-1. You can build OAuth2 for Sign In and Registration
-1. Creating the network page and having Connections
 
 ## Send feedback!
 
