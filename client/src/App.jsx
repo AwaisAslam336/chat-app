@@ -6,6 +6,7 @@ function App() {
   return (
     <div className="App">
       <h1>Chat App</h1>
+      <p>Get cracking with your new project!</p>
     </div>
   );
 }

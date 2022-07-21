@@ -8,4 +8,6 @@ app.get("/", (req, res) => {
   res.send("hey there!").end();
 });
 
-app.listen(3001, "Server is listening on 3001");
+app.listen(1338, () => {
+  console.log("listening on port 1338");
+});
